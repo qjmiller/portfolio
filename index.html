@@ -92,33 +92,9 @@
             font-weight: bold;
             font-size: 16px;
         }
-        .dark-mode {
-            background-color: #121212;
-            color: white;
-        }
-        .dark-mode .container {
-            background: #1e1e1e;
-        }
-        .dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode p {
-            color: white;
-        }
-        .dark-mode .contact, .dark-mode .resume a, .dark-mode .skills-section li {
-            background: linear-gradient(135deg, #444, #222);
-        }
-        .toggle-theme {
-            margin: 20px;
-            padding: 10px 20px;
-            background: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-        }
     </style>
 </head>
 <body>
-    <button class="toggle-theme" onclick="toggleTheme()">Toggle Dark Mode</button>
     <div class="container">
         <header>
             <h1>Qayum Miller</h1>
@@ -149,8 +125,7 @@
         
         <div class="resume">
             <h2>Resume</h2>
-            <a href="https://github.com/qjmiller/portfolio/raw/main/Qayum_Miller_Resume.pdf" target="_blank">Download My Resume</a>
-
+            <a href="https://raw.githubusercontent.com/qjmiller/portfolio/main/Qayum_Miller_Resume.pdf" target="_blank">Download My Resume</a>
         </div>
         
         <div class="contact">
@@ -160,10 +135,5 @@
             <p>GitHub: <a href="https://qjmiller.github.io/portfolio/" target="_blank" style="color: white;">qjmiller.github.io/portfolio/</a></p>
         </div>
     </div>
-    <script>
-        function toggleTheme() {
-            document.body.classList.toggle("dark-mode");
-        }
-    </script>
 </body>
 </html>
