@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Data Analyst Portfolio</title>
+    <title>Qayum Miller - Data Analyst Portfolio</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
             background-color: #f4f4f4;
             margin: 0;
             padding: 0;
+            transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
         }
         .container {
             max-width: 900px;
@@ -29,10 +30,10 @@
         h1, h2, h3 {
             color: #333;
         }
-        .projects {
+        .projects, .skills-section {
             margin-top: 30px;
         }
-        .project-item {
+        .project-item, .skill-item {
             margin-bottom: 25px;
             padding: 20px;
             border: 1px solid #ddd;
@@ -41,7 +42,7 @@
             text-align: left;
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
-        .project-item:hover {
+        .project-item:hover, .skill-item:hover {
             transform: scale(1.05);
             box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
         }
@@ -76,16 +77,12 @@
             color: white;
             border-radius: 0 0 10px 10px;
         }
-        .skills {
-            margin-top: 40px;
-            text-align: left;
-        }
-        .skills ul {
+        .skills-section ul {
             list-style: none;
             padding: 0;
             text-align: center;
         }
-        .skills li {
+        .skills-section li {
             background: linear-gradient(135deg, #007bff, #0056b3);
             color: white;
             display: inline-block;
@@ -95,9 +92,33 @@
             font-weight: bold;
             font-size: 16px;
         }
+        .dark-mode {
+            background-color: #121212;
+            color: white;
+        }
+        .dark-mode .container {
+            background: #1e1e1e;
+        }
+        .dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode p {
+            color: white;
+        }
+        .dark-mode .contact, .dark-mode .resume a, .dark-mode .skills-section li {
+            background: linear-gradient(135deg, #444, #222);
+        }
+        .toggle-theme {
+            margin: 20px;
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
+    <button class="toggle-theme" onclick="toggleTheme()">Toggle Dark Mode</button>
     <div class="container">
         <header>
             <h1>Qayum Miller</h1>
@@ -110,29 +131,11 @@
             <div class="project-item">
                 <h3>Sales Data Analysis with SQL</h3>
                 <p>Performed data cleaning, aggregation, and visualization using SQL queries to extract key business insights.</p>
-                <a href="https://github.com/your-username/sql-project" target="_blank">View on GitHub</a>
-            </div>
-            
-            <div class="project-item">
-                <h3>Customer Churn Prediction with Python</h3>
-                <p>Used Pandas, Scikit-learn, and Matplotlib to analyze customer data and build a predictive model.</p>
-                <a href="https://github.com/your-username/python-churn-analysis" target="_blank">View on GitHub</a>
-            </div>
-            
-            <div class="project-item">
-                <h3>Tableau Dashboard for E-Commerce Trends</h3>
-                <p>Created an interactive dashboard to visualize sales performance and customer trends.</p>
-                <a href="https://public.tableau.com/profile/your-profile" target="_blank">View Dashboard</a>
-            </div>
-            
-            <div class="project-item">
-                <h3>Power BI Report: Financial Analysis</h3>
-                <p>Developed a Power BI report to track financial KPIs and revenue growth trends.</p>
-                <a href="https://app.powerbi.com/view?your-link" target="_blank">View Report</a>
+                <a href="https://github.com/qjmiller/sql-project" target="_blank">View on GitHub</a>
             </div>
         </div>
         
-        <div class="skills">
+        <div class="skills-section">
             <h2>Skills</h2>
             <ul>
                 <li>SQL</li>
@@ -146,15 +149,20 @@
         
         <div class="resume">
             <h2>Resume</h2>
-            <a href="your-resume-link.pdf" target="_blank">Download My Resume</a>
+            <a href="Qayum_Miller_Resume.pdf" target="_blank">Download My Resume</a>
         </div>
         
         <div class="contact">
             <h2>Contact Me</h2>
-            <p>Email: your.email@example.com</p>
-            <p>LinkedIn: <a href="https://linkedin.com/in/your-profile" target="_blank" style="color: white;">linkedin.com/in/your-profile</a></p>
-            <p>GitHub: <a href="https://github.com/your-username" target="_blank" style="color: white;">github.com/your-username</a></p>
+            <p>Email: qjmiller8@gmail.com</p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/qayum-miller-193462333/" target="_blank" style="color: white;">linkedin.com/in/qayum-miller-193462333/</a></p>
+            <p>GitHub: <a href="https://qjmiller.github.io/portfolio/" target="_blank" style="color: white;">qjmiller.github.io/portfolio/</a></p>
         </div>
     </div>
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle("dark-mode");
+        }
+    </script>
 </body>
 </html>
