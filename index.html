@@ -26,6 +26,11 @@
             color: white;
             padding: 40px;
             border-radius: 10px 10px 0 0;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         h1, h2, h3 {
             color: #333;
@@ -41,6 +46,7 @@
             background-color: #fff;
             text-align: left;
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
         }
         .project-item:hover, .skill-item:hover {
             transform: scale(1.05);
@@ -91,6 +97,10 @@
             border-radius: 5px;
             font-weight: bold;
             font-size: 16px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .skills-section li:hover {
+            transform: scale(1.1);
         }
     </style>
 </head>
@@ -112,24 +122,22 @@
             
             <div class="project-item">
                 <h3>Caterpillar Machinery Data Analysis</h3>
-                <p>Performed exploratory data analysis on Caterpillar Machinery data using Python and Google Collab Notebook.</p>
+                <p>Performed exploratory data analysis on Caterpillar Machinery data using Python and Google Colab Notebook.</p>
                 <a href="https://github.com/qjmiller/portfolio/blob/main/PYTHON_PROJECT_MAIN.ipynb" target="_blank">View Notebook on GitHub</a>
             </div>
-        </div>
-
-        <div class="project-item">
-    <h3>Sales Dashboard - Power BI</h3>
-    <p>Interactive Power BI report analyzing sales trends and insights.</p>
-    <a href="https://app.powerbi.com/links/vf1lXZ_dvb?ctid=dd15886c-0dc0-4363-b85c-9863a90f06ef&pbi_source=linkShare" target="_blank">View Full Report</a>
-</div>
-
-<div class="project-item">
+            
+            <div class="project-item">
+                <h3>Sales Dashboard - Power BI</h3>
+                <p>Interactive Power BI report analyzing sales trends and insights.</p>
+                <a href="https://app.powerbi.com/links/vf1lXZ_dvb?ctid=dd15886c-0dc0-4363-b85c-9863a90f06ef&pbi_source=linkShare" target="_blank">View Full Report</a>
+            </div>
+            
+            <div class="project-item">
                 <h3>Airbnb Analysis - Tableau Dashboard</h3>
                 <p>Interactive Tableau dashboard analyzing Airbnb data trends and insights.</p>
                 <a href="https://public.tableau.com/views/AirbnbAnalysis_17404449451560/AirbnbAnalysis?:language=en-US&publish=yes&:sid=&:display_count=n&:origin=viz_share_link" target="_blank">View Full Dashboard</a>
             </div>
-
-
+        </div>
         
         <div class="skills-section">
             <h2>Skills</h2>
