@@ -1,18 +1,14 @@
--- ==============================================
--- 🧠 Project: Sales Data Analysis with SQL
--- 🔍 Objective: Identify revenue trends, top-performing stores/products, and country-level sales insights using SQL.
--- 📊 Tools: Microsoft SQL Server, SSMS
--- 📁 Tables: Sales$, Stores$, Products$, Customers$
--- ==============================================
+-- ============================================================
+-- 🧠 Project: Retail Sales Data Analysis
+-- 👤 Analyst: Qayum Miller
+-- 🎯 Goal: Uncover key sales trends and performance metrics
+-- 📊 Tools: SQL Server, SSMS
+-- 📁 Tables Used: Sales$, Stores$, Products$, Customers$
+-- ============================================================
 
 
-
--- 💰 Monthly Revenue Analysis --
-
-
-
-
--- Calculate revenue per month and filter for months exceeding $50M in total sales.
+-- 💰 Monthly Revenue Analysis
+-- Identify months with total revenue exceeding $50M
 
 SELECT 
     SUM(Price) AS monthly_revenue, 
@@ -23,7 +19,9 @@ HAVING SUM(Price) > 50000000
 ORDER BY monthly_revenue DESC;
 
 
+
 -- 🏬 Top 10 Stores by Sales in 2006
+-- Highlight the most profitable store locations for 2006
 
 SELECT TOP 10 
     s.StoreID,
@@ -37,7 +35,9 @@ GROUP BY s.StoreID, s.CityName, s.CountryName
 ORDER BY TotalSales DESC;
 
 
+
 -- 🏬 Top 10 Stores by Sales in 2007
+-- Highlight the most profitable store locations for 2007
 
 SELECT TOP 10 
     s.StoreID,
@@ -51,7 +51,9 @@ GROUP BY s.StoreID, s.CityName, s.CountryName
 ORDER BY TotalSales DESC;
 
 
+
 -- Top 5 Selling Products in the US by Invoice Count
+-- Discover the most frequently sold products in the U.S. market
 
 SELECT TOP 5 
     COUNT(s.Invoice) AS total_invoices,  
@@ -65,7 +67,9 @@ GROUP BY p.ProductDescription, s2.CountryName
 ORDER BY total_invoices DESC;
 
 
--- 📦 Top 5 Products by Total Sales
+
+-- 📦 Top 5 Products by Total Sales Volume (Global)
+-- Rank products by the number of invoices
 
 SELECT 
     p.ProductKey, 
@@ -84,7 +88,9 @@ ORDER BY total_sales DESC
 OFFSET 0 ROWS FETCH NEXT 5 ROWS ONLY;
 
 
--- 🏆 Most Profitable Year and Top Product in That Year
+
+-- 🏆 Most Profitable Year + Top-Selling Product That Year
+-- Use CTEs to determine the top revenue year and its leading product
 
 WITH YearlySales AS (
     SELECT 
@@ -109,7 +115,9 @@ GROUP BY p.ProductDescription
 ORDER BY TotalProductSales DESC;
 
 
+
 -- 🌍 Yearly Spending by Country
+-- Evaluate yearly total revenue by customer country
 
 SELECT 
     c.Country, 
@@ -121,7 +129,9 @@ GROUP BY c.Country, YEAR(s.TransactionDate)
 ORDER BY total_spending DESC;
 
 
+
 -- 👨‍💼 Total Revenue by Employee in 2011
+-- Identify top revenue-generating employees
 
 SELECT
     EmpKey, 
