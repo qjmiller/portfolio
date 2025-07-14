@@ -1,11 +1,8 @@
--- 🔍 Check for Unique Keys in Sales Table
--- Identify columns that could serve as unique identifiers by checking for duplicates.
-
-SELECT DISTINCT * 
-FROM dbo.Sales$;
-
-
 -- 💰 Monthly Revenue Analysis
+
+
+
+
 -- Calculate revenue per month and filter for months exceeding $50M in total sales.
 
 SELECT 
@@ -101,7 +98,6 @@ JOIN dbo.Products$ p ON sa.ProductKey = p.ProductKey
 WHERE YEAR(sa.TransactionDate) = (SELECT SalesYear FROM TopYear)
 GROUP BY p.ProductDescription
 ORDER BY TotalProductSales DESC;
-
 
 
 -- 🌍 Yearly Spending by Country
