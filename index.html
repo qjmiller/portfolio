@@ -1,178 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Qayum Miller - Data Analyst Portfolio</title>
-    <meta name="description" content="Qayum Miller - Data Analyst Portfolio featuring projects in SQL, Python, Power BI, and Tableau.">
-    <meta name="keywords" content="Data Analyst, SQL, Python, Power BI, Tableau, Portfolio">
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
-        }
-        .container {
-            max-width: 900px;
-            margin: 50px auto;
-            background: white;
-            padding: 30px;
-            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
-            border-radius: 10px;
-            text-align: center;
-        }
-        header {
-            background: linear-gradient(135deg, #007bff, #0056b3);
-            color: white;
-            padding: 40px;
-            border-radius: 10px 10px 0 0;
-            animation: fadeIn 1.5s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        h1, h2, h3 {
-            color: #333;
-        }
-        .bio {
-            margin-top: 15px;
-            font-size: 16px;
-            color: #f1f1f1;
-        }
-        .projects, .skills-section {
-            margin-top: 30px;
-        }
-        .project-item, .skill-item {
-            margin-bottom: 25px;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background-color: #fff;
-            text-align: left;
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-        }
-        .project-item:hover, .skill-item:hover {
-            transform: scale(1.05);
-            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
-        }
-        .project-item img {
-            height: 40px;
-            margin-bottom: 10px;
-        }
-        a {
-            text-decoration: none;
-            color: #007bff;
-            font-weight: bold;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        .resume {
-            margin-top: 20px;
-        }
-        .resume a {
-            background: linear-gradient(135deg, #007bff, #0056b3);
-            color: white;
-            padding: 12px 25px;
-            border-radius: 5px;
-            font-weight: bold;
-            text-decoration: none;
-            display: inline-block;
-            transition: background 0.3s;
-        }
-        .resume a:hover {
-            background: #003d80;
-        }
-        .contact {
-            margin-top: 40px;
-            padding: 20px;
-            background: linear-gradient(135deg, #007bff, #0056b3);
-            color: white;
-            border-radius: 0 0 10px 10px;
-        }
-        .skills-section ul {
-            list-style: none;
-            padding: 0;
-            text-align: center;
-        }
-        .skills-section li {
-            background: linear-gradient(135deg, #007bff, #0056b3);
-            color: white;
-            display: inline-block;
-            padding: 12px 20px;
-            margin: 5px;
-            border-radius: 5px;
-            font-weight: bold;
-            font-size: 16px;
-            transition: transform 0.3s ease-in-out;
-        }
-        .skills-section li:hover {
-            transform: scale(1.1);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Qayum Miller - Data Analyst Portfolio</title>
+  <meta name="description" content="Data Analyst Portfolio showcasing projects in SQL, Python, Power BI, and Tableau.">
+  <meta name="keywords" content="Data Analyst, Portfolio, SQL, Python, Power BI, Tableau, Qayum Miller">
+  <meta property="og:title" content="Qayum Miller - Data Analyst Portfolio">
+  <meta property="og:description" content="Explore projects in SQL, Python, Power BI, and Tableau.">
+  <meta property="og:url" content="https://qjmiller.github.io/portfolio/">
+  <meta property="og:image" content="thumbnail.jpg">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #f4f4f9;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+    header {
+      text-align: center;
+      padding-bottom: 20px;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      color: #007bff;
+      margin-bottom: 10px;
+    }
+    header p.bio {
+      color: #555;
+      font-size: 1.1rem;
+    }
+    h2 {
+      color: #333;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 10px;
+    }
+    .project {
+      background: #fafafa;
+      border-left: 5px solid #007bff;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    .project h3 {
+      margin-top: 0;
+    }
+    .project p {
+      margin: 10px 0;
+      color: #444;
+    }
+    .project a {
+      color: #007bff;
+      font-weight: bold;
+    }
+    .tags {
+      margin-top: 10px;
+    }
+    .tags span {
+      display: inline-block;
+      background: #007bff;
+      color: white;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      margin: 2px;
+    }
+    .skills ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    .skills li {
+      background: #0056b3;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    .resume a {
+      display: inline-block;
+      background: #007bff;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      text-decoration: none;
+      margin-top: 20px;
+    }
+    .resume a:hover {
+      background: #0056b3;
+    }
+    .contact {
+      text-align: center;
+      margin-top: 40px;
+    }
+    .contact p, .contact a {
+      color: #333;
+    }
+  </style>
 </head>
 <body>
-    <main class="container">
-        <header>
-            <h1>Qayum Miller</h1>
-            <p>Data Analyst | SQL | Python | Power BI | Tableau</p>
-            <p class="bio">I’m a data analyst with a passion for uncovering actionable insights. I use SQL, Python, and BI tools to turn raw data into decision-ready dashboards.</p>
-        </header>
+  <div class="container">
+    <header>
+      <h1>Qayum Miller</h1>
+      <p class="bio">Data Analyst skilled in SQL, Python, Power BI, and Tableau. I turn complex data into clear insights and compelling visuals.</p>
+    </header>
 
-        <section class="projects">
-            <h2>Featured Projects</h2>
+    <section class="projects">
+      <h2>Projects</h2>
 
-            <div class="project-item">
-                <img src="https://img.icons8.com/ios-filled/50/sql.png" alt="SQL Icon" />
-                <h3>Sales Data Analysis with SQL</h3>
-                <p>Performed data cleaning, aggregation, and visualization using SQL queries to extract key business insights.</p>
-                <a href="https://github.com/qjmiller/portfolio/blob/main/SQL_PROJECT_MAIN.sql" target="_blank">View SQL Script on GitHub</a>
-            </div>
+      <div class="project">
+        <h3>Sales Data Analysis with SQL</h3>
+        <p>Performed data cleaning, aggregation, and visualization using SQL queries to identify sales trends and key performance indicators.</p>
+        <div class="tags">
+          <span>SQL</span>
+          <span>PostgreSQL</span>
+          <span>Data Cleaning</span>
+        </div>
+        <a href="https://github.com/qjmiller/portfolio/blob/main/SQL_PROJECT_MAIN.sql" target="_blank">View SQL Script on GitHub</a>
+      </div>
 
-            <div class="project-item">
-                <img src="https://img.icons8.com/ios-filled/50/python.png" alt="Python Icon" />
-                <h3>Heavy Machinery Data Analysis</h3>
-                <p>Performed exploratory data analysis on heavy machinery data using Python and Google Colab Notebook.</p>
-                <a href="https://github.com/qjmiller/portfolio/blob/main/PYTHON_PROJECT_MAIN.ipynb" target="_blank">View Notebook on GitHub</a>
-            </div>
+      <div class="project">
+        <h3>Heavy Machinery Data Analysis (Python)</h3>
+        <p>Exploratory data analysis on machinery usage and failure patterns using Python and Google Colab.</p>
+        <div class="tags">
+          <span>Python</span>
+          <span>Pandas</span>
+          <span>Matplotlib</span>
+        </div>
+        <a href="https://github.com/qjmiller/portfolio/blob/main/PYTHON_PROJECT_MAIN.ipynb" target="_blank">View Notebook on GitHub</a>
+      </div>
 
-            <div class="project-item">
-                <img src="https://img.icons8.com/color/48/power-bi.png" alt="Power BI Icon" />
-                <h3>Sales Dashboard - Power BI</h3>
-                <p>Interactive Power BI report analyzing sales trends and insights.</p>
-                <a href="https://app.powerbi.com/links/vf1lXZ_dvb?ctid=dd15886c-0dc0-4363-b85c-9863a90f06ef&pbi_source=linkShare" target="_blank">View Full Report</a>
-            </div>
+      <div class="project">
+        <h3>Power BI Sales Dashboard</h3>
+        <p>Interactive Power BI dashboard for visualizing product sales performance across regions.</p>
+        <div class="tags">
+          <span>Power BI</span>
+          <span>DAX</span>
+          <span>Interactive Reports</span>
+        </div>
+        <a href="https://app.powerbi.com/links/vf1lXZ_dvb?ctid=dd15886c-0dc0-4363-b85c-9863a90f06ef&pbi_source=linkShare" target="_blank">View Full Report</a>
+      </div>
 
-            <div class="project-item">
-                <img src="https://img.icons8.com/color/48/tableau-software.png" alt="Tableau Icon" />
-                <h3>Hotel Booking Analysis - Tableau Dashboard</h3>
-                <p>Interactive Tableau dashboard analyzing hotel booking data trends and insights.</p>
-                <a href="https://public.tableau.com/views/HotelBookingAnalysis_17512648211870/AirbnbAnalysis?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank">View Full Dashboard</a>
-            </div>
-        </section>
+      <div class="project">
+        <h3>Hotel Booking Analysis in Tableau</h3>
+        <p>Visualized patterns in hotel bookings to uncover insights like cancellation trends, lead time, and seasonal impact.</p>
+        <div class="tags">
+          <span>Tableau</span>
+          <span>Data Viz</span>
+          <span>Exploratory Analysis</span>
+        </div>
+        <a href="https://public.tableau.com/views/HotelBookingAnalysis_17512648211870/AirbnbAnalysis" target="_blank">View Dashboard</a>
+      </div>
+    </section>
 
-        <section class="skills-section">
-            <h2>Skills</h2>
-            <ul>
-                <li>SQL</li>
-                <li>Python</li>
-                <li>Power BI</li>
-                <li>Tableau</li>
-                <li>Data Visualization</li>
-            </ul>
-        </section>
+    <section class="skills">
+      <h2>Skills</h2>
+      <ul>
+        <li>SQL</li>
+        <li>Python</li>
+        <li>Power BI</li>
+        <li>Tableau</li>
+        <li>Data Cleaning</li>
+        <li>Dashboard Design</li>
+        <li>Storytelling with Data</li>
+      </ul>
+    </section>
 
-        <section class="resume">
-            <h2>Resume</h2>
-            <a href="Q James Miller Resume FINAL1.pdf" target="_blank">Download My Resume</a>
-        </section>
+    <section class="resume">
+      <h2>Resume</h2>
+      <a href="Q James Miller Resume FINAL1.pdf" target="_blank">Download My Resume</a>
+    </section>
 
-        <section class="contact">
-            <h2>Contact Me</h2>
-            <p>Email: qjmiller8@gmail.com</p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/qayum-miller-193462333/" target="_blank" style="color: white;">linkedin.com/in/qayum-miller-193462333/</a></p>
-            <p>GitHub: <a href="https://qjmiller.github.io/portfolio/" target="_blank" style="color: white;">qjmiller.github.io/portfolio/</a></p>
+    <section class="contact">
+      <h2>Contact</h2>
+      <p>Email: qjmiller8@gmail.com</p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/qayum-miller-193462333/" target="_blank">linkedin.com/in/qayum-miller</a></p>
+      <p>GitHub: <a href="https://github.com/qjmiller" target="_blank">github.com/qjmiller</a></p>
+    </section>
+  </div>
+</body>
+</html>
