@@ -1,4 +1,13 @@
--- 💰 Monthly Revenue Analysis
+-- ==============================================
+-- 🧠 Project: Sales Data Analysis with SQL
+-- 🔍 Objective: Identify revenue trends, top-performing stores/products, and country-level sales insights using SQL.
+-- 📊 Tools: Microsoft SQL Server, SSMS
+-- 📁 Tables: Sales$, Stores$, Products$, Customers$
+-- ==============================================
+
+
+
+-- 💰 Monthly Revenue Analysis --
 
 
 
