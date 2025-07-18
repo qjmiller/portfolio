@@ -1,117 +1,395 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Qayum Miller - Data Analyst Portfolio</title>
-    <meta name="description" content="Qayum Miller - Data Analyst Portfolio featuring projects in SQL, Python, Power BI, and Tableau.">
-    <meta name="keywords" content="Data Analyst, SQL, Python, Power BI, Tableau, Portfolio">
+    <meta content="Qayum Miller - Data Analyst Portfolio featuring projects in SQL, Python, Power BI, and Tableau." name="description"/>
+    <meta content="Data Analyst, SQL, Python, Power BI, Tableau, Portfolio" name="keywords"/>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
+        * {
             margin: 0;
             padding: 0;
-            transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
+            box-sizing: border-box;
         }
+
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary-color: #64748b;
+            --background-color: #f8fafc;
+            --surface-color: #ffffff;
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
         .container {
-            max-width: 900px;
-            margin: 50px auto;
-            background: white;
-            padding: 30px;
-            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
-            border-radius: 10px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            padding: 4rem 2rem;
+            border-radius: 1.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+            animation: slideInDown 0.8s ease-out;
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        header p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .bio {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section {
+            background: var(--surface-color);
+            border-radius: 1rem;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.4s; }
+        .section:nth-child(4) { animation-delay: 0.6s; }
+        .section:nth-child(5) { animation-delay: 0.8s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--primary-dark));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+            border-color: var(--primary-color);
+        }
+
+        .project-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-color);
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--primary-color);
+            border-radius: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .project-link:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateX(4px);
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 2rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: default;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-tag::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s, height 0.3s;
+        }
+
+        .skill-tag:hover::before {
+            width: 100px;
+            height: 100px;
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .resume-section {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .resume-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .resume-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .resume-button:hover::before {
+            left: 100%;
+        }
+
+        .resume-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            border-radius: 1rem;
+            padding: 2.5rem;
             text-align: center;
         }
-        header {
-            background: linear-gradient(135deg, #007bff, #0056b3);
+
+        .contact-section h2 {
             color: white;
-            padding: 40px;
-            border-radius: 10px 10px 0 0;
-            animation: fadeIn 1.5s ease-in-out;
+            margin-bottom: 1.5rem;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+
+        .contact-section h2::after {
+            background: white;
+            left: 50%;
+            transform: translateX(-50%);
         }
-        h1, h2, h3 {
-            color: #333;
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            align-items: center;
         }
-        .bio {
-            margin-top: 15px;
-            font-size: 16px;
-            color: #f1f1f1;
-        }
-        .projects, .skills-section {
-            margin-top: 30px;
-        }
-        .project-item, .skill-item {
-            margin-bottom: 25px;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background-color: #fff;
-            text-align: left;
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-        }
-        .project-item:hover, .skill-item:hover {
-            transform: scale(1.05);
-            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
-        }
-        .project-item img {
-            height: 40px;
-            margin-bottom: 10px;
-        }
-        a {
+
+        .contact-link {
+            color: white;
             text-decoration: none;
-            color: #007bff;
-            font-weight: bold;
+            opacity: 0.9;
+            transition: opacity 0.3s ease;
+            font-size: 1.1rem;
         }
-        a:hover {
+
+        .contact-link:hover {
+            opacity: 1;
             text-decoration: underline;
         }
-        .resume {
-            margin-top: 20px;
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            header {
+                padding: 2.5rem 1.5rem;
+            }
+
+            header h1 {
+                font-size: 2.25rem;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .skills-container {
+                justify-content: center;
+            }
         }
-        .resume a {
-            background: linear-gradient(135deg, #007bff, #0056b3);
-            color: white;
-            padding: 12px 25px;
-            border-radius: 5px;
-            font-weight: bold;
-            text-decoration: none;
-            display: inline-block;
-            transition: background 0.3s;
-        }
-        .resume a:hover {
-            background: #003d80;
-        }
-        .contact {
-            margin-top: 40px;
-            padding: 20px;
-            background: linear-gradient(135deg, #007bff, #0056b3);
-            color: white;
-            border-radius: 0 0 10px 10px;
-        }
-        .skills-section ul {
-            list-style: none;
-            padding: 0;
-            text-align: center;
-        }
-        .skills-section li {
-            background: linear-gradient(135deg, #007bff, #0056b3);
-            color: white;
-            display: inline-block;
-            padding: 12px 20px;
-            margin: 5px;
-            border-radius: 5px;
-            font-weight: bold;
-            font-size: 16px;
-            transition: transform 0.3s ease-in-out;
-        }
-        .skills-section li:hover {
-            transform: scale(1.1);
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.75rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -120,59 +398,91 @@
         <header>
             <h1>Qayum Miller</h1>
             <p>Data Analyst | SQL | Python | Power BI | Tableau</p>
-            <p class="bio">I’m a data analyst with a passion for uncovering actionable insights. I use SQL, Python, and BI tools to turn raw data into decision-ready dashboards.</p>
+            <p class="bio">I'm a data analyst with a passion for uncovering actionable insights. I use SQL, Python, and BI tools to turn raw data into decision-ready dashboards.</p>
         </header>
 
-        <section class="projects">
+        <section class="section">
             <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img alt="SQL Icon" class="project-icon" src="https://img.icons8.com/ios-filled/50/sql.png"/>
+                    <h3 class="project-title">Sales Data Analysis with SQL</h3>
+                    <p class="project-description">Performed in-depth retail sales analysis using SQL, uncovering key sales trends, top-performing stores, and products, along with revenue insights across multiple years and regions.</p>
+                    <a class="project-link" href="https://github.com/qjmiller/portfolio/blob/main/SQL_PROJECT_MAIN.sql" target="_blank">
+                        View SQL Script on GitHub
+                        <svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16">
+                            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                        </svg>
+                    </a>
+                </div>
 
-            <div class="project-item">
-                <img src="https://img.icons8.com/ios-filled/50/sql.png" alt="SQL Icon" />
-                <h3>Sales Data Analysis with SQL</h3>
-                <p>Performed in-depth retail sales analysis using SQL, uncovering key sales trends, top-performing stores, and products, along with revenue insights across multiple years and regions.</p>
-                <a href="https://github.com/qjmiller/portfolio/blob/main/SQL_PROJECT_MAIN.sql" target="_blank">View SQL Script on GitHub</a>
-            </div>
+                <div class="project-card">
+                    <img alt="Python Icon" class="project-icon" src="https://img.icons8.com/ios-filled/50/python.png"/>
+                    <h3 class="project-title">Heavy Machinery Data Analysis with Python</h3>
+                    <p class="project-description">Performed exploratory data analysis on heavy machinery data using Python and Google Colab Notebook.</p>
+                    <a class="project-link" href="https://github.com/qjmiller/portfolio/blob/main/python_project_main.ipynb" target="_blank">
+                        View Notebook on GitHub
+                        <svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16">
+                            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                        </svg>
+                    </a>
+                </div>
 
-            <div class="project-item">
-                <img src="https://img.icons8.com/ios-filled/50/python.png" alt="Python Icon" />
-                <h3>Heavy Machinery Data Analysis with Python</h3>
-                <p>Performed exploratory data analysis on heavy machinery data using Python and Google Colab Notebook.</p>
-                <a href="https://github.com/qjmiller/portfolio/blob/main/python_project_main.ipynb" target="_blank">View Notebook on GitHub</a>
-            </div>
+                <div class="project-card">
+                    <img alt="Power BI Icon" class="project-icon" src="https://img.icons8.com/color/48/power-bi.png"/>
+                    <h3 class="project-title">Sales Dashboard - Power BI</h3>
+                    <p class="project-description">Interactive Power BI report analyzing sales trends and insights.</p>
+                    <a class="project-link" href="https://app.powerbi.com/links/vf1lXZ_dvb?ctid=dd15886c-0dc0-4363-b85c-9863a90f06ef&amp;pbi_source=linkShare" target="_blank">
+                        View Full Report
+                        <svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16">
+                            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                        </svg>
+                    </a>
+                </div>
 
-            <div class="project-item">
-                <img src="https://img.icons8.com/color/48/power-bi.png" alt="Power BI Icon" />
-                <h3>Sales Dashboard - Power BI</h3>
-                <p>Interactive Power BI report analyzing sales trends and insights.</p>
-                <a href="https://app.powerbi.com/links/vf1lXZ_dvb?ctid=dd15886c-0dc0-4363-b85c-9863a90f06ef&pbi_source=linkShare" target="_blank">View Full Report</a>
-            </div>
-
-            <div class="project-item">
-                <img src="https://img.icons8.com/color/48/tableau-software.png" alt="Tableau Icon" />
-                <h3>Hotel Booking Analysis - Tableau Dashboard</h3>
-                <p>Interactive Tableau dashboard analyzing hotel booking data trends and insights.</p>
-                <a href="https://public.tableau.com/views/HotelBookingAnalysis_17512648211870/AirbnbAnalysis?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank">View Full Dashboard</a>
+                <div class="project-card">
+                    <img alt="Tableau Icon" class="project-icon" src="https://img.icons8.com/color/48/tableau-software.png"/>
+                    <h3 class="project-title">Hotel Booking Analysis - Tableau Dashboard</h3>
+                    <p class="project-description">Interactive Tableau dashboard analyzing hotel booking data trends and insights.</p>
+                    <a class="project-link" href="https://public.tableau.com/views/HotelBookingAnalysis_17512648211870/AirbnbAnalysis?:language=en-US&amp;publish=yes&amp;:sid=&amp;:redirect=auth&amp;:display_count=n&amp;:origin=viz_share_link" target="_blank">
+                        View Full Dashboard
+                        <svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16">
+                            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                        </svg>
+                    </a>
+                </div>
             </div>
         </section>
 
-        <section class="skills-section">
+        <section class="section">
             <h2>Skills</h2>
-            <ul>
-                <li>SQL</li>
-                <li>Python</li>
-                <li>Power BI</li>
-                <li>Tableau</li>
-                <li>Data Visualization</li>
-            </ul>
+            <div class="skills-container">
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Power BI</span>
+                <span class="skill-tag">Tableau</span>
+                <span class="skill-tag">Data Visualization</span>
+            </div>
         </section>
 
-        <section class="resume">
+        <section class="section resume-section">
             <h2>Resume</h2>
-            <a href="Q James Miller Resume FINAL1.pdf" target="_blank">Download My Resume</a>
+            <a class="resume-button" href="Q James Miller Resume FINAL1.pdf" target="_blank">
+                Download My Resume
+                <svg fill="none" height="20" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="20">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                </svg>
+            </a>
         </section>
 
-        <section class="contact">
+        <section class="contact-section">
             <h2>Contact Me</h2>
-            <p>Email: qjmiller8@gmail.com</p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/qayum-miller-193462333/" target="_blank" style="color: white;">linkedin.com/in/qayum-miller-193462333/</a></p>
-            <p>GitHub: <a href="https://qjmiller.github.io/portfolio/" target="_blank" style="color: white;">qjmiller.github.io/portfolio/</a></p>
+            <div class="contact-links">
+                <a class="contact-link" href="mailto:qjmiller8@gmail.com">Email: qjmiller8@gmail.com</a>
+                <a class="contact-link" href="https://www.linkedin.com/in/qayum-miller-193462333/" target="_blank">LinkedIn: linkedin.com/in/qayum-miller-193462333/</a>
+                <a class="contact-link" href="https://qjmiller.github.io/portfolio/" target="_blank">GitHub: qjmiller.github.io/portfolio/</a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
